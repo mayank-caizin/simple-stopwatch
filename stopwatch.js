@@ -9,7 +9,7 @@ export class StopWatch {
         this.time = document.getElementById(timer).querySelector('.time');
         this.toggleButton = document.getElementById(controls).querySelector('.toggle-btn');
         this.resetButton = document.getElementById(controls).querySelector('.reset-btn');
-        
+
         this.toggleButton.addEventListener('click', this.toggle.bind(this));
         this.resetButton.addEventListener('click', this.reset.bind(this));
     }
@@ -29,7 +29,7 @@ export class StopWatch {
 
     reset() {
         clearInterval(this.timerInterval);
-        this.print("00:00:00.00");
+        this.print("00:00:00");
         this.elapsedTime = 0;
         this.playing = false;
 
@@ -73,6 +73,6 @@ export class StopWatch {
         let formattedSS = ss.toString().padStart(2, "0");
         let formattedMS = ms.toString().padStart(2, "0");
 
-        return `${formattedHH}:${formattedMM}:${formattedSS}.${formattedMS}`;
+        return `${formattedHH}:${formattedMM}:${formattedSS}.<span class="small">${formattedMS}</span>`;
     }
 }
